@@ -146,7 +146,7 @@ async function callOpenAI(imageDataUrl: string, aspectRatio: string, modelHint?:
 
 async function callGroq(imageDataUrl: string, aspectRatio: string): Promise<AnalysisResult> {
   const key = process.env.GROQ_API_KEY!;
-  const model = "llama-3.2-11b-vision-preview";
+  const model = "llama-3.2-11b-vision-instruct";
   const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
