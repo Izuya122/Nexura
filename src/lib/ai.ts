@@ -212,7 +212,7 @@ async function callGemini(imageDataUrl: string, aspectRatio: string): Promise<An
   const m = imageDataUrl.match(/^data:(.+?);base64,(.+)$/);
   const mediaType = m ? m[1] : "image/jpeg";
   const b64 = m ? m[2] : imageDataUrl;
-  const model = "gemini-2.5-flash"; // <-- Diperbarui ke model yang didukung
+  const model = "gemini-3.8-flash";
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`;
   const res = await fetch(url, {
     method: "POST",
@@ -309,7 +309,7 @@ export async function enhancePrompt(prompt: string): Promise<string> {
   }
   if (getGeminiKey()) {
     const key = getGeminiKey()!;
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`, { // <-- Diperbarui ke model yang didukung
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${key}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
